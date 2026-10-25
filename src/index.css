@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+/* Vazir (وزیر) — self-hosted for reliable RTL Persian typography */
+@font-face {
+  font-family: "Vazir";
+  src: url("/fonts/Vazir-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazir";
+  src: url("/fonts/Vazir-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazir";
+  src: url("/fonts/Vazir-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazir";
+  src: url("/fonts/Vazir-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazir";
+  src: url("/fonts/Vazir-Black.woff2") format("woff2");
+  font-weight: 800 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-plum: #3a1c71;
+  --color-rose: #d76d77;
+  --color-press: #2c1558;
+  --color-page: #f5f2f8;
+  --color-surface: #ffffff;
+  --color-tint: #f3ebf5;
+  --color-border: #e5ddea;
+  --color-ink: #241536;
+  --color-muted: #6d6280;
+  --color-soft: #9a90ab;
+  --color-success: #1f7a4d;
+  --color-success-bg: #e8f6ee;
+  --color-warning: #b54708;
+  --color-warning-bg: #fffaeb;
+  --color-danger: #b42318;
+  --color-danger-bg: #fef3f2;
+
+  --font-sans: "Vazir", "Tahoma", "Segoe UI", system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px rgba(36, 21, 54, 0.05), 0 12px 32px -12px rgba(58, 28, 113, 0.14);
+  --shadow-lift: 0 2px 4px rgba(36, 21, 54, 0.06), 0 24px 48px -16px rgba(58, 28, 113, 0.28);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    background-color: var(--color-page);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+    -webkit-tap-highlight-color: transparent;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  ::selection {
+    background: var(--color-rose);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-plum);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .arch {
+    border-radius: 9999px 9999px 1.5rem 1.5rem;
+  }
+  .text-outline {
+    -webkit-text-stroke: 1.4px rgba(58, 28, 113, 0.16);
+    color: transparent;
+  }
+}
+
+/* Thin elegant scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-tint);
+}
+::-webkit-scrollbar-thumb {
+  background: #c9bcd6;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-soft);
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes scroll-wheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .animate-float-soft {
+    animation: float-soft 5s ease-in-out infinite;
+  }
+  .animate-scroll-wheel {
+    animation: scroll-wheel 1.9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+}
