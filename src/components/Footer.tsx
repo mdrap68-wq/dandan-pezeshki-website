@@ -4,7 +4,6 @@ import { CLINIC } from '../lib/format';
 
 const LINKS = [
   { label: 'خدمات درمانی', href: '#treatments' },
-  { label: 'گالری', href: '#gallery' },
   { label: 'پرسش‌های رایج', href: '#faq' },
   { label: 'رزرو نوبت', href: '#booking' },
 ];

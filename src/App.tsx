@@ -3,7 +3,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import StatsStrip from './components/StatsStrip';
 import Treatments from './components/Treatments';
-import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
 import Faq from './components/Faq';
 import Booking from './components/Booking';
@@ -29,7 +28,6 @@ export default function App() {
         <Hero />
         <StatsStrip />
         <Treatments />
-        <Gallery />
         <Testimonials />
         <Faq />
         <Booking />
